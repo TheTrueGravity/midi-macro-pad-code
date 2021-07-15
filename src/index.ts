@@ -1,6 +1,6 @@
-import {
-    controller
-} from './midi/controller'
+import { Controller, Page, Push, Toggle } from './midi/controller';
 
-// const _controller = new controller('APC mini', 0, 1)
+const controller = new Controller('APC mini', 0, 1)
 
+controller.createPage('main')
+controller.setButton('main', 0, new Toggle('test', 0x00, 0x01))

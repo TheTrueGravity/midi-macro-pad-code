@@ -1,6 +1,6 @@
 export class Collection<identifier, collectionType> {
-    private collection: collectionType[]
-    private collectionIndex: any
+    private collection: collectionType[] = []
+    private collectionIndex: any = {}
 
     public set(name: identifier, object: collectionType) {
         if (this.collectionIndex[name]) {
@@ -13,10 +13,10 @@ export class Collection<identifier, collectionType> {
     }
 
     public get(name: identifier) {
-        if (this.collectionIndex[name]) {
+        if (this.collectionIndex[name] != undefined) {
             return this.collection[this.collectionIndex[name]]
         } else {
-            throw new Error('Object not present in the array!')
+            throw new Error(`The object "${name}" was not present in the array!`)
         }
     }
     
@@ -25,5 +25,14 @@ export class Collection<identifier, collectionType> {
             delete this.collection[this.collectionIndex[name]]
             delete this.collectionIndex[name]
         }
+    }
+
+    public getAll() {
+        const out = Object
+        for (var index in this.collectionIndex) {
+            out[index] = this.collection[this.collectionIndex[index]]
+        }
+
+        return out
     }
 }

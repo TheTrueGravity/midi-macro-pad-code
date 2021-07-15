@@ -60,9 +60,15 @@ export class Input {
     }
 
     private emit(call: 'message' | 'open' | 'close', ...args: any[]) {
-        if (call == 'message') this.onMessage(args)
-        if (call == 'open') this.onOpen(args)
-        if (call == 'close') this.onClose(args)
+        if (args.length == 1) {
+            if (call == 'message') this.onMessage(args[0])
+            if (call == 'open') this.onOpen(args[0])
+            if (call == 'close') this.onClose(args[0])
+        } else {
+            if (call == 'message') this.onMessage(args)
+            if (call == 'open') this.onOpen(args)
+            if (call == 'close') this.onClose(args)
+        }
     }
 
     public on(call: 'message' | 'open' | 'close', callback: Function) {
@@ -108,7 +114,7 @@ export class Output {
         return out
     }
 
-    public sendMessage(message: []) {
+    public sendMessage(message: number[]) {
         this.output.sendMessage(message);
     }
 
