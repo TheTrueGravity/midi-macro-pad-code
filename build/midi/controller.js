@@ -7,6 +7,12 @@ var controller = /** @class */ (function () {
         this.input = new midi_1.Input(inputPort);
         this.output = new midi_1.Output(outputPort);
     }
+    controller.prototype.getInputName = function () {
+        return this.input.getPortName();
+    };
+    controller.prototype.getOutputName = function () {
+        return this.output.getPortName();
+    };
     return controller;
 }());
 exports.controller = controller;

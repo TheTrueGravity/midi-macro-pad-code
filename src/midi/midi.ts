@@ -147,5 +147,19 @@ export class Output {
 export function getPorts() {
     const input = new midi.Input()
     const output = new midi.Output()
-    const inputPortCount = input.getPortCount()
+
+    const inputPortCount: number = input.getPortCount()
+    const outputPortCount: number = output.getPortCount()
+
+    const inputPorts = []
+    const outputPorts = []
+
+    for (let i = 0; i < inputPortCount; i++) {
+        inputPorts[i] = {name: input.getPortName(i), index: i}
+    }
+    for (let i = 0; i < outputPortCount; i++) {
+        outputPorts[i] = {name: output.getPortName(i), index: i}
+    }
+
+    console.log(inputPorts, outputPorts)
 }

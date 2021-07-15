@@ -158,5 +158,15 @@ function getPorts() {
     var input = new midi_1.default.Input();
     var output = new midi_1.default.Output();
     var inputPortCount = input.getPortCount();
+    var outputPortCount = output.getPortCount();
+    var inputPorts = [];
+    var outputPorts = [];
+    for (var i = 0; i < inputPortCount; i++) {
+        inputPorts[i] = { name: input.getPortName(i), index: i };
+    }
+    for (var i = 0; i < outputPortCount; i++) {
+        outputPorts[i] = { name: output.getPortName(i), index: i };
+    }
+    console.log(inputPorts, outputPorts);
 }
 exports.getPorts = getPorts;
