@@ -5,6 +5,6 @@ export class controller {
     private output: Output
 
     constructor (name: string, midiInput: number, midiOutput: number) {
-
+        
     }
 }
