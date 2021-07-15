@@ -143,3 +143,9 @@ export class Output {
         if (call == 'close') this.onClose = callback
     }
 }
+
+export function getPorts() {
+    const input = new midi.Input()
+    const output = new midi.Output()
+    const inputPortCount = input.getPortCount()
+}

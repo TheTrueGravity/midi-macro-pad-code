@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Output = exports.Input = void 0;
+exports.getPorts = exports.Output = exports.Input = void 0;
 var midi_1 = __importDefault(require("midi"));
 var Input = /** @class */ (function () {
     function Input(port) {
@@ -154,3 +154,9 @@ var Output = /** @class */ (function () {
     return Output;
 }());
 exports.Output = Output;
+function getPorts() {
+    var input = new midi_1.default.Input();
+    var output = new midi_1.default.Output();
+    var inputPortCount = input.getPortCount();
+}
+exports.getPorts = getPorts;
