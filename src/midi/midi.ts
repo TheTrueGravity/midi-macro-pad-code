@@ -18,7 +18,7 @@ export class Input {
             throw new Error('Port has to be a number or a string!')
         }
         this.openPort()
-        this.input.on('message', (timeStamp: Number, message: []) => this.emit('message', timeStamp, message))
+        this.input.on('message', (timeStamp: Number, message: []) => this.emit('message', message))
         return this
     }
 

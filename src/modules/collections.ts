@@ -1,8 +1,8 @@
-export class collection {
-    private collection: any[]
+export class Collection<identifier, collectionType> {
+    private collection: collectionType[]
     private collectionIndex: any
 
-    public set(name: string | number, object: any) {
+    public set(name: identifier, object: collectionType) {
         if (this.collectionIndex[name]) {
             const index = this.collectionIndex[name]
             this.collection[index] = object
@@ -12,7 +12,7 @@ export class collection {
         }
     }
 
-    public get(name: string | number) {
+    public get(name: identifier) {
         if (this.collectionIndex[name]) {
             return this.collection[this.collectionIndex[name]]
         } else {
@@ -20,7 +20,7 @@ export class collection {
         }
     }
     
-    public remove(name: string | number) {
+    public remove(name: identifier) {
         if (this.collectionIndex[name]) {
             delete this.collection[this.collectionIndex[name]]
             delete this.collectionIndex[name]

@@ -22,7 +22,7 @@ var Input = /** @class */ (function () {
             throw new Error('Port has to be a number or a string!');
         }
         this.openPort();
-        this.input.on('message', function (timeStamp, message) { return _this.emit('message', timeStamp, message); });
+        this.input.on('message', function (timeStamp, message) { return _this.emit('message', message); });
         return this;
     }
     Input.prototype.getPortNamesAndIds = function () {

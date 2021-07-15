@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.collection = void 0;
-var collection = /** @class */ (function () {
-    function collection() {
+exports.Collection = void 0;
+var Collection = /** @class */ (function () {
+    function Collection() {
     }
-    collection.prototype.set = function (name, object) {
+    Collection.prototype.set = function (name, object) {
         if (this.collectionIndex[name]) {
             var index = this.collectionIndex[name];
             this.collection[index] = object;
@@ -14,7 +14,7 @@ var collection = /** @class */ (function () {
             this.collection[this.collection.length] = object;
         }
     };
-    collection.prototype.get = function (name) {
+    Collection.prototype.get = function (name) {
         if (this.collectionIndex[name]) {
             return this.collection[this.collectionIndex[name]];
         }
@@ -22,12 +22,12 @@ var collection = /** @class */ (function () {
             throw new Error('Object not present in the array!');
         }
     };
-    collection.prototype.remove = function (name) {
+    Collection.prototype.remove = function (name) {
         if (this.collectionIndex[name]) {
             delete this.collection[this.collectionIndex[name]];
             delete this.collectionIndex[name];
         }
     };
-    return collection;
+    return Collection;
 }());
-exports.collection = collection;
+exports.Collection = Collection;
